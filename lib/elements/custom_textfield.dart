@@ -51,6 +51,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         });
       },
       child: TextFormField(
+      
         validator: widget.validator == null
             ? null
             : (value) => widget.validator!(value),
@@ -61,10 +62,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
         keyboardType: widget.textInputType,
         cursorColor: AppColors.kPrimaryColor,
         decoration: InputDecoration(
+          
           constraints: BoxConstraints(
             maxHeight: widget.textFieldHeight,
             maxWidth: widget.textFieldWidth,
+            minHeight: widget.textFieldHeight,
+            minWidth: widget.textFieldWidth,
           ),
+          
           label: widget.labelText == null
               ? null
               : CustomText(
